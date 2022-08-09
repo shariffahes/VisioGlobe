@@ -1,0 +1,13 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:orientation="vertical" >
+  <com.visioglobe.visiomoveessential.VMEMapView
+    app:mapHash="dev-m89829873811956459f67b0c3c007b0f517cfd224"
+    android:id="@+id/map"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center|center_vertical|center_horizontal"
+    />
+</LinearLayout>

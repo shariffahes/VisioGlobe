@@ -1,6 +1,33 @@
+import React, { useEffect, useRef } from 'react';
+import { PixelRatio, UIManager, findNodeHandle } from 'react-native';
 
-import { NativeModules } from 'react-native';
+import { MyViewManager } from './MyViewManager';
 
-const { RNVisioGlobe } = NativeModules;
+const createFragment = viewId =>
+    UIManager.dispatchViewManagerCommand(
+        viewId,
+        // we are calling the 'create' command
+        UIManager.MyViewManager.Commands.create.toString(),
+        [viewId],
+    );
 
-export default RNVisioGlobe;
+export const MyView = () => {
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const viewId = findNodeHandle(ref.current);
+        createFragment(viewId);
+    }, []);
+
+    return (
+        <MyViewManager
+            style={{
+                // converts dpi to px, provide desired height
+                height: PixelRatio.getPixelSizeForLayoutSize(600),
+                // converts dpi to px, provide desired width
+                width: PixelRatio.getPixelSizeForLayoutSize(384),
+            }}
+            ref={ref}
+        />
+    );
+};
