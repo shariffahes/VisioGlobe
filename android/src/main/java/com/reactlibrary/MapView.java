@@ -13,12 +13,12 @@ import com.visioglobe.visiomoveessential.VMEMapView;
 public class MapView extends FrameLayout {
   private View rootView;
   private VMEMapView mapView;
-  public MapView(@NonNull Context context) {
+  public MapView(@NonNull Context context, boolean shouldDisplayPrompt) {
     super(context);
     LayoutInflater inflater = LayoutInflater.from(context);
     rootView = inflater.inflate(R.layout.map_view, null);
     mapView = (VMEMapView) rootView.findViewById(R.id.map);
-    //mMapView.setPromptUserToDownloadMap(false);
+    mapView.setPromptUserToDownloadMap(shouldDisplayPrompt);
     mapView.loadMap();
     this.addView(rootView);
   }

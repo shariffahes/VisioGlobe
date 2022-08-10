@@ -26,6 +26,8 @@ public class MapViewManager extends ViewGroupManager<FrameLayout> {
   public final int COMMAND_CREATE = 1;
   private int propWidth;
   private int propHeight;
+  private boolean showOverlay;
+  private boolean shouldDisplayPrompt;
 
   ReactApplicationContext reactContext;
 
@@ -80,12 +82,21 @@ public class MapViewManager extends ViewGroupManager<FrameLayout> {
     }
   }
 
+  @ReactProp(name = "showOverlay", defaultBoolean = true)
+  public void setShowOverlay(FrameLayout view, boolean value) {
+    this.showOverlay = value;
+  }
+  @ReactProp(name = "displayPromptToDownloadMap", defaultBoolean = true)
+  public void setPromptValue(FrameLayout view, boolean value) {
+    this.shouldDisplayPrompt = value;
+  }
+
   //create the view in the react native
   public void createFragment(FrameLayout root, int reactNativeViewId) {
     ViewGroup parentView = (ViewGroup) root.findViewById(reactNativeViewId);
     setupLayout(parentView);
 
-    final MapViewFragment myFragment = new MapViewFragment();
+    final MapViewFragment myFragment = new MapViewFragment(showOverlay,shouldDisplayPrompt);
     FragmentActivity activity = (FragmentActivity) reactContext.getCurrentActivity();
     activity.getSupportFragmentManager()
             .beginTransaction()

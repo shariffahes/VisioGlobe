@@ -17,12 +17,21 @@ import com.visioglobe.visiomoveessential.listeners.VMELifeCycleListener;
 public class MapViewFragment extends Fragment {
     MapView mapViewInstance;
     private VMEMapView mMapView;
+    private boolean showOverlay;
+    private boolean shouldDisplayPrompt;
+
+    public MapViewFragment(boolean showOverlay, boolean shouldDisplayPrompt) {
+        this.showOverlay = showOverlay;
+        this.shouldDisplayPrompt = shouldDisplayPrompt;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         super.onCreateView(inflater, parent, savedInstanceState);
-        mapViewInstance = new MapView(this.getContext());
+        mapViewInstance = new MapView(this.getContext(), shouldDisplayPrompt);
         mMapView = mapViewInstance.getVMEMapView();
         mMapView.setLifeCycleListener(mLifeCycleListener);
+        mMapView.setSelectorViewVisible(showOverlay);
         return mapViewInstance;
     }
 

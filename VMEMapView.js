@@ -1,8 +1,7 @@
-import React, {useEffect, useRef} from 'react';
-import {UIManager, findNodeHandle} from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { UIManager, findNodeHandle, PixelRatio } from 'react-native';
 
-import {MapViewManager} from './MapViewManager';
-import {VMEMapView} from './VMEMapView';
+import { MapViewManager } from './MapViewManager';
 
 const createFragment = viewId =>
   UIManager.dispatchViewManagerCommand(
@@ -13,17 +12,21 @@ const createFragment = viewId =>
 
 export const VMEMapView = (props) => {
   const ref = useRef(null);
-  const {width, height} = props;
+  const { width, height } = props.style;
   useEffect(() => {
     const viewId = findNodeHandle(ref.current);
     createFragment(viewId);
   }, []);
 
+  if (!width || !height) throw new Error("Width and height are reuired style properties");
+
   return (
     <MapViewManager
+      showOverlay={props.showOverlay ?? null}
+      displayPromptToDownloadMap={props.displayPromptToDownloadMap ?? null}
       style={{
-        height: height ?? 400,
-        width: width ?? 300,
+        height: PixelRatio.getPixelSizeForLayoutSize(height),
+        width: PixelRatio.getPixelSizeForLayoutSize(width),
       }}
       ref={ref}
     />
