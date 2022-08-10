@@ -33,7 +33,7 @@ repositories {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.aar"])
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation files('../libs/VisioMoveEssential.aar')
+    implementation files('./libs/VisioMoveEssential.aar')
     implementation 'com.facebook.react:react-native:+'
 }
   

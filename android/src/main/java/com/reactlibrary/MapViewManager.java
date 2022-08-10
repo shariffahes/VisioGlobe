@@ -1,8 +1,10 @@
 
 package com.reactlibrary;
+
 import android.view.Choreographer;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,19 +17,19 @@ import com.facebook.react.uimanager.annotations.ReactProp;
 import com.facebook.react.uimanager.annotations.ReactPropGroup;
 import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.ThemedReactContext;
-import android.view.ViewGroup;
+
 import java.util.Map;
 
-public class MyViewManager extends ViewGroupManager<FrameLayout> {
+public class MapViewManager extends ViewGroupManager<FrameLayout> {
 
-  public static final String REACT_CLASS = "MyViewManager";
+  public static final String REACT_CLASS = "MapViewManager";
   public final int COMMAND_CREATE = 1;
   private int propWidth;
   private int propHeight;
 
   ReactApplicationContext reactContext;
 
-  public MyViewManager(ReactApplicationContext reactContext) {
+  public MapViewManager(ReactApplicationContext reactContext) {
     this.reactContext = reactContext;
   }
 
@@ -36,26 +38,19 @@ public class MyViewManager extends ViewGroupManager<FrameLayout> {
     return REACT_CLASS;
   }
 
-  /**
-   * Return a FrameLayout which will later hold the Fragment
-   */
   @Override
   public FrameLayout createViewInstance(ThemedReactContext reactContext) {
     return new FrameLayout(reactContext);
   }
 
-  /**
-   * Map the "create" command to an integer
-   */
+  //those commands will be called from the js side
   @Nullable
   @Override
   public Map<String, Integer> getCommandsMap() {
     return MapBuilder.of("create", COMMAND_CREATE);
   }
 
-  /**
-   * Handle "create" command (called from JS) and call createFragment method
-   */
+  //when a command is called from js side, it will be handled here
   @Override
   public void receiveCommand(
     @NonNull FrameLayout root,
@@ -85,14 +80,12 @@ public class MyViewManager extends ViewGroupManager<FrameLayout> {
     }
   }
 
-  /**
-   * Replace your React Native view with a custom fragment
-   */
+  //create the view in the react native
   public void createFragment(FrameLayout root, int reactNativeViewId) {
     ViewGroup parentView = (ViewGroup) root.findViewById(reactNativeViewId);
     setupLayout(parentView);
 
-    final MyFragment myFragment = new MyFragment();
+    final MapViewFragment myFragment = new MapViewFragment();
     FragmentActivity activity = (FragmentActivity) reactContext.getCurrentActivity();
     activity.getSupportFragmentManager()
             .beginTransaction()
