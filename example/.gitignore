@@ -61,4 +61,4 @@ buck-out/
 # Ruby / CocoaPods
 /ios/Pods/
 /vendor/bundle/
-/RNVisioGlobe/**
+/react-native-visio-globe/**
