@@ -1,12 +1,17 @@
-//
-//  VMEMapViewManager.m
-//  example
-//
-//  Created by Sharif Fahes on 11/08/2022.
-//
+#import <MapKit/MapKit.h>
+
 #import <React/RCTViewManager.h>
 
+@interface RNTMapManager : RCTViewManager
+@end
 
-@interface RCT_EXTERN_MODULE(VMEMapViewManager, RCTViewManager)
+@implementation RNTMapManager
+
+RCT_EXPORT_MODULE(RNTMap)
+
+- (UIView *)view
+{
+  return [[MKMapView alloc] init];
+}
 
 @end
