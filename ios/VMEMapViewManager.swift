@@ -24,4 +24,6 @@ class VMEMapViewManager: RCTViewManager {
     return mapViewFrame
   }
   
+  
+  
 }
