@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7E542ED428AB8A5F0021E24E /* VisioMoveEssential.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E542ED328AB8A5F0021E24E /* VisioMoveEssential.xcframework */; };
+		7E542EDC28AB9A3F0021E24E /* VisioMoveEssential.xcframework.zip in Resources */ = {isa = PBXBuildFile; fileRef = 7E542EDB28AB9A3F0021E24E /* VisioMoveEssential.xcframework.zip */; };
 		7E98072528A62EDF005C4DAD /* VMEMapViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E98072128A62EDF005C4DAD /* VMEMapViewManager.swift */; };
 		7E98072628A62EDF005C4DAD /* VMEMapViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E98072328A62EDF005C4DAD /* VMEMapViewManager.m */; };
 		7E98072728A62EDF005C4DAD /* VMEMapViewFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E98072428A62EDF005C4DAD /* VMEMapViewFrame.swift */; };
@@ -28,7 +28,7 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNVisioGlobe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNVisioGlobe.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		7E542ED328AB8A5F0021E24E /* VisioMoveEssential.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = VisioMoveEssential.xcframework; sourceTree = "<group>"; };
+		7E542EDB28AB9A3F0021E24E /* VisioMoveEssential.xcframework.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = VisioMoveEssential.xcframework.zip; sourceTree = "<group>"; };
 		7E98072128A62EDF005C4DAD /* VMEMapViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMEMapViewManager.swift; sourceTree = "<group>"; };
 		7E98072228A62EDF005C4DAD /* RNVisioGlobe-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RNVisioGlobe-Bridging-Header.h"; sourceTree = "<group>"; };
 		7E98072328A62EDF005C4DAD /* VMEMapViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMEMapViewManager.m; sourceTree = "<group>"; };
@@ -42,7 +42,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E542ED428AB8A5F0021E24E /* VisioMoveEssential.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,7 +73,7 @@
 		7E542ED228AB88F40021E24E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7E542ED328AB8A5F0021E24E /* VisioMoveEssential.xcframework */,
+				7E542EDB28AB9A3F0021E24E /* VisioMoveEssential.xcframework.zip */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -138,6 +137,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E542EDC28AB9A3F0021E24E /* VisioMoveEssential.xcframework.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,11 +249,7 @@
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RNVisioGlobe;
@@ -274,11 +270,7 @@
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RNVisioGlobe;
