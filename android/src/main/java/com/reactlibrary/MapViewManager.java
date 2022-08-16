@@ -22,7 +22,7 @@ import java.util.Map;
 
 public class MapViewManager extends ViewGroupManager<FrameLayout> {
 
-  public static final String REACT_CLASS = "MapViewManager";
+  public static final String REACT_CLASS = "VMEMapView";
   public final int COMMAND_CREATE = 1;
   private int propWidth;
   private int propHeight;
