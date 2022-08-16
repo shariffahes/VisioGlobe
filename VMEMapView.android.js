@@ -1,9 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { UIManager, findNodeHandle, PixelRatio, View } from 'react-native';
-
-
-const MapViewManager = UIManager.getViewManagerConfig("VMEMapView") != null
-&& requireNativeComponent("VMEMapView");
+import { MapViewManager } from './MapViewManager';
 
 const createFragment = viewId =>
   UIManager.dispatchViewManagerCommand(
@@ -19,13 +16,14 @@ export const VMEMapView = (props) => {
     createFragment(viewId);
   }, []);
 
-  if (!width || !height) throw new Error("Width and height are reuired style properties");
-
+  if (!width || !height) throw new Error("Width and height are required style properties");
+  if (!props.mapHash) throw new Error("mapHash property is undefined");
   return (
     <View style={{ height: height, width: width }}>
       <MapViewManager
         showOverlay={props.showOverlay ?? null}
         displayPromptToDownloadMap={props.displayPromptToDownloadMap ?? null}
+        mapHash={props.mapHash}
         style={{
           height: PixelRatio.getPixelSizeForLayoutSize(height),
           width: PixelRatio.getPixelSizeForLayoutSize(width),
