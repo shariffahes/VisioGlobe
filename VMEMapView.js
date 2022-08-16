@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { UIManager, findNodeHandle, PixelRatio, View } from 'react-native';
 
-import { MapViewManager } from './MapViewManager';
+
+const MapViewManager = UIManager.getViewManagerConfig("VMEMapView") != null
+&& requireNativeComponent("VMEMapView");
 
 const createFragment = viewId =>
   UIManager.dispatchViewManagerCommand(

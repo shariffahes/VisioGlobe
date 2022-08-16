@@ -1,3 +1,3 @@
-import { requireNativeComponent, UIManager } from 'react-native';
-console.log(UIManager.VMEMapViewManager);
+import { requireNativeComponent } from 'react-native';
+
 export const MapViewManager = requireNativeComponent('RNTMap');
